@@ -1,0 +1,8 @@
+.chrono-card{
+	display: flex;
+	justify-content: center;
+}
+
+.chrono{
+	font-size: 30px;
+}

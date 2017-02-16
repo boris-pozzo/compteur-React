@@ -7,19 +7,24 @@ class Chrono extends React.Component {
 
  constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      value: '2017-06-14'
+    };
 
+  this.handleChange= this.handleChange.bind(this);
     
 }
     //new Date()
 
     decrementChrono= function(){
-      var dateEnd = new Date(2017, 6, 14);
+      var dateEnd = new Date(this.state.value);
       var dateNew = new Date();
+      
 
       var gap = dateEnd.getTime() - dateNew.getTime();
       
       this.setState({ millisecondes: gap });
+      
       this.seconds();
       this.minutes();
       this.hours();
@@ -47,8 +52,9 @@ class Chrono extends React.Component {
       this.setState({ counterDays: jours}); 
     }
 
+  
+    handleChange= function(e){ 
 
-    handleChange= function(e){
       this.setState({value: e.target.value});
     }
 
@@ -56,6 +62,7 @@ class Chrono extends React.Component {
   
    componentDidMount = () => {
     setInterval(this.decrementChrono.bind(this), 1000);
+    
 
   };
   
@@ -77,7 +84,7 @@ class Chrono extends React.Component {
         
        
       
-        <input type="date" value="year" />
+        <input type="date" value={this.state.value} onChange={this.handleChange} />
 
        
 

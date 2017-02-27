@@ -8,9 +8,9 @@ class Chrono extends React.Component {
  constructor(props) {
     super(props);
     this.state = {
-      value: '2017-06-14'
+      value: ''
     };
-
+  setInterval(this.decrementChrono.bind(this), 1000);
   this.handleChange= this.handleChange.bind(this);
     
 }
@@ -58,13 +58,6 @@ class Chrono extends React.Component {
       this.setState({value: e.target.value});
     }
 
- 
-  
-   componentDidMount = () => {
-    setInterval(this.decrementChrono.bind(this), 1000);
-    
-
-  };
   
 
   render() {
